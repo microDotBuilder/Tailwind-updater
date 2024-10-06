@@ -1,5 +1,11 @@
 # @micro-builder/tailwind-updater
 
+## 0.0.6
+
+### Patch Changes
+
+- updated to get framework info
+
 ## 0.0.5
 
 ### Patch Changes
