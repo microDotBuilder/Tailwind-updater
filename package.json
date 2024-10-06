@@ -1,6 +1,6 @@
 {
   "name": "@micro-builder/tailwind-updater",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An CLI tool that installs tailwindcss in your project.",
   "repository": {
     "type": "git",
@@ -9,6 +9,9 @@
   "files": [
     "dist"
   ],
+  "main": "./dist/cli.cjs",
+  "module": "./dist/cli.mjs",
+  "types": "./dist/cli.d.cts",
   "bin": {
     "tailwind-updater": "./dist/cli.mjs",
     "tu": "./dist/cli.mjs"
@@ -17,15 +20,12 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "./dist/cli.js",
-  "module": "./dist/cli.mjs",
   "private": false,
-  "types": "./dist/cli.d.ts",
   "scripts": {
-    "build": "tsup src/cli.ts --format cjs,esm --dts",
+    "build": "pkgroll",
     "test:integration": "vitest run src/tests/integration --poolOptions.threads.singleThread",
     "dev": "jiti src/cli.ts ",
-    "start": "jiti src/cli.ts ",
+    "start": "jiti ./src/cli.ts",
     "typecheck": "tsc",
     "test": "vitest run",
     "lint": "tsc --noEmit",
