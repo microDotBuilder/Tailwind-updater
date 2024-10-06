@@ -1,10 +1,17 @@
 {
   "name": "@micro-builder/tailwind-updater",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An CLI tool that installs tailwindcss in your project.",
   "repository": {
     "type": "git",
     "url": "https://github.com/microDotBuilder/Tailwind-update.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "tailwind-updater": "./dist/cli.mjs",
+    "tu": "./dist/cli.mjs"
   },
   "type": "module",
   "publishConfig": {
