@@ -11,10 +11,13 @@ import {
 } from "./helpers/get-package-manager";
 import { getFrameworkInfo } from "./helpers/utils";
 import { runTailwindInstaller } from "./helpers/tailwind-installer";
+// import path from "path";
 
 export async function main(projectPath: string) {
+  // projectPath = path.join(process.cwd(), "/exampleProjects/example02"); // this is for testing
   Logger.info(`Installing Tailwind in -> ${projectPath}`);
   const projectInfo = await getProjectInfo(projectPath);
+
   if (!projectInfo) {
     Logger.errorReturn("we appologize but this project is not supported yet");
     return;
@@ -35,8 +38,8 @@ export async function main(projectPath: string) {
     packageRunner,
     cwd: projectPath,
   });
-  Logger.info(`Framework info -> `);
-  Logger.infoJSON(frameworkInfo);
+  // Logger.info(`Framework info -> `);
+  // Logger.infoJSON(frameworkInfo);
   await runTailwindInstaller({ config: frameworkInfo });
 }
 cli(

@@ -11,3 +11,9 @@ npm i @micro-builder/tailwind-updater
 ```bash
 npx tailwind-updater
 ```
+
+##OR
+
+```bash
+npx tu
+```

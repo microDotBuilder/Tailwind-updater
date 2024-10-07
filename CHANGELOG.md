@@ -1,5 +1,11 @@
 # @micro-builder/tailwind-updater
 
+## 1.0.1
+
+### Patch Changes
+
+- extended functionality to pages
+
 ## 1.0.0
 
 ### Major Changes

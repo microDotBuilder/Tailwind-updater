@@ -1,6 +1,8 @@
 import { Logger } from "@micro-builder/package-practice";
 import { FrameworkConfig } from "../types/misc";
 import { installTailwindForNextApp } from "./tailwind-next-app";
+import { installTailwindForNextPages } from "./tailwind-pages-app";
+import { installTailwindForRemix } from "./tailwind-remix-app";
 
 export async function runTailwindInstaller({
   config,
@@ -20,23 +22,6 @@ export async function runTailwindInstaller({
   } else {
     console.log("we apologize, but this framework is not supported yet");
   }
-}
-
-//TODO: implement these functions
-async function installTailwindForNextPages({
-  config,
-}: {
-  config: FrameworkConfig;
-}) {
-  Logger.logg("installing tailwind for next-pages");
-}
-
-async function installTailwindForRemix({
-  config,
-}: {
-  config: FrameworkConfig;
-}) {
-  Logger.info("installing tailwind for remix");
 }
 
 async function installTailwindForVite({ config }: { config: FrameworkConfig }) {

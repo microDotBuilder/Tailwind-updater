@@ -1,6 +1,6 @@
 {
   "name": "@micro-builder/tailwind-updater",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An CLI tool that installs tailwindcss in your project.",
   "repository": {
     "type": "git",
