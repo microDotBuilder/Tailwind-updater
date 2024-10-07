@@ -5,6 +5,8 @@ import path from "path";
 import { loadConfig } from "tsconfig-paths";
 import { ProjectInfo } from "../types/misc";
 import { findGlobalCssPath } from "./utils";
+import { Logger } from "@micro-builder/package-practice";
+import JSON5 from "json5";
 
 export const PROJECT_SHARED_IGNORE = [
   "**/node_modules/**",
@@ -91,6 +93,7 @@ export async function getTsConfig(
   isTsx: boolean
 ): Promise<{ tsConfigData: any; tsConfigPath: string }> {
   const tsConfig = await loadConfig(cwd);
+
   if (tsConfig.resultType === "failed") {
     throw new Error(
       `Failed to load ${isTsx ? "tsconfig" : "jsconfig"}.json. ${
@@ -99,7 +102,12 @@ export async function getTsConfig(
     );
   }
 
-  const tsConfigFileData = await fs.readJSON(tsConfig.configFileAbsolutePath);
+  const tsConfigContent = await fs.readFile(
+    tsConfig.configFileAbsolutePath,
+    "utf8"
+  );
+  const tsConfigFileData = JSON5.parse(tsConfigContent);
+
   return {
     tsConfigData: tsConfigFileData,
     tsConfigPath: tsConfig.configFileAbsolutePath,

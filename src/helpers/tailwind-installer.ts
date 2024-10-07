@@ -3,6 +3,7 @@ import { FrameworkConfig } from "../types/misc";
 import { installTailwindForNextApp } from "./tailwind-next-app";
 import { installTailwindForNextPages } from "./tailwind-pages-app";
 import { installTailwindForRemix } from "./tailwind-remix-app";
+import { installTailwindForVite } from "./tailwind-vite-react-app";
 
 export async function runTailwindInstaller({
   config,
@@ -16,16 +17,13 @@ export async function runTailwindInstaller({
   } else if (config.framework.name === "remix") {
     await installTailwindForRemix({ config });
   } else if (config.framework.name === "vite") {
+    // write now we just support vite react app
     await installTailwindForVite({ config });
   } else if (config.framework.name === "manual") {
     await installTailwindForManual({ config });
   } else {
     console.log("we apologize, but this framework is not supported yet");
   }
-}
-
-async function installTailwindForVite({ config }: { config: FrameworkConfig }) {
-  Logger.info("installing tailwind for vite");
 }
 
 async function installTailwindForManual({
