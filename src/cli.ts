@@ -10,6 +10,7 @@ import {
   getPackageRunner,
 } from "./helpers/get-package-manager";
 import { getFrameworkInfo } from "./helpers/utils";
+import { runTailwindInstaller } from "./helpers/tailwind-installer";
 
 export async function main(projectPath: string) {
   Logger.info(`Installing Tailwind in -> ${projectPath}`);
@@ -36,7 +37,7 @@ export async function main(projectPath: string) {
   });
   Logger.info(`Framework info -> `);
   Logger.infoJSON(frameworkInfo);
-  Logger.success("will run tailwind installer in future here .....");
+  await runTailwindInstaller({ config: frameworkInfo });
 }
 cli(
   {

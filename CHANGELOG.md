@@ -1,5 +1,11 @@
 # @micro-builder/tailwind-updater
 
+## 1.0.0
+
+### Major Changes
+
+- added the functionality to update tailwind in nextjs-app
+
 ## 0.0.7
 
 ### Patch Changes
