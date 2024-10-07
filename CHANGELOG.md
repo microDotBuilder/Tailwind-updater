@@ -1,5 +1,11 @@
 # @micro-builder/tailwind-updater
 
+## 1.1.0
+
+### Minor Changes
+
+- added functionality for vite-react
+
 ## 1.0.1
 
 ### Patch Changes
