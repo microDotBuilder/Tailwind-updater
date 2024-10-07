@@ -33,6 +33,7 @@ module.exports = {
       },
     },
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 }`;
 
@@ -72,8 +73,10 @@ const config = {
       },
     },
   },
+
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+} satisfies Config;
 
 export default config`;
 
@@ -81,4 +84,30 @@ export const GLOBAL_CSS_CONTENT = `
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+`;
+
+export const TAILWIND_CONFIG_REMIX = `
+  import type { Config } from "tailwindcss";
+
+export default {
+  content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: [
+          '"Inter"',
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+      },
+    },
+  },
+  plugins: [],
+} satisfies Config;
+
 `;

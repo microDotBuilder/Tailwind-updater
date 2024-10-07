@@ -62,7 +62,7 @@ export async function installTailwindDependencies(cwd: string) {
   if (!packageManager) {
     handleError("Package manager not found");
   }
-
+  Logger.warn(`using ${packageManager} to install dependencies`);
   const command = `${packageManager} ${
     packageManager === "npm" ? "install --save-dev" : "add --dev"
   } ${PROJECT_DEPENDENCIES.join(" ")}`;
