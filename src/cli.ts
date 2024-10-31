@@ -14,7 +14,8 @@ import { runTailwindInstaller } from "./helpers/tailwind-installer";
 import path from "path";
 
 export async function main(projectPath: string) {
-  projectPath = path.join(process.cwd(), "/exampleProjects/example05"); // this is for testing
+  // projectPath = path.join(process.cwd(), "/exampleProjects/example05"); // this is for testing
+
   Logger.info(`Installing Tailwind in -> ${projectPath}`);
   const projectInfo = await getProjectInfo(projectPath);
 

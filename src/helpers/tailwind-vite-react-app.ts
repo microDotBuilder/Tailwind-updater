@@ -11,6 +11,9 @@ import path from "path";
 import { updateTsConfig } from "./ts-config-updater";
 import { handleError } from "./handle-error";
 
+// tailwind vite react app
+//TODO:add support for tsconfig
+
 export async function installTailwindForVite({
   config,
 }: {

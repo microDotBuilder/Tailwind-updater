@@ -17,6 +17,7 @@ export async function runTailwindInstaller({
   } else if (config.framework.name === "remix") {
     await installTailwindForRemix({ config });
   } else if (config.framework.name === "vite") {
+    //this will actually be tailwind vite react app
     // write now we just support vite react app
     await installTailwindForVite({ config });
   } else if (config.framework.name === "manual") {
