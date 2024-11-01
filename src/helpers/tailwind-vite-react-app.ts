@@ -8,7 +8,7 @@ import {
 } from "./next-app-helpers";
 import { updateGlobalCss } from "./global-css-installer";
 import path from "path";
-import { updateTsConfig } from "./ts-config-updater";
+
 import { handleError } from "./handle-error";
 
 export async function installTailwindForVite({
@@ -31,17 +31,8 @@ export async function installTailwindForVite({
     const cssPath = path.resolve(cwd, "src/index.css");
     cssPromise = updateGlobalCss(cwd, cssPath);
 
-    // const tsconfigPromise =
-    //   tsconfigPath && TypescriptConfig
-    //     ? updateTsConfig(tsconfigPath)
-    //     : Promise.resolve();
-
-    await Promise.all([
-      postcssPromise,
-      tailwindPromise,
-      cssPromise,
-      //   tsconfigPromise,
-    ]);
+    // NO nead to update tsconfig for vite
+    await Promise.all([postcssPromise, tailwindPromise, cssPromise]);
     dependenciesSpinner?.succeed();
   } catch (error) {
     dependenciesSpinner?.fail();

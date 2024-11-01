@@ -1,5 +1,6 @@
 import { detect } from "@antfu/ni";
 import { PackageManagerType, PackageRunnerType } from "../types/misc";
+import { Logger } from "@micro-builder/package-practice";
 
 export async function getPackageManager(
   targetDir: string,
@@ -7,8 +8,9 @@ export async function getPackageManager(
     withFallback: false,
   }
 ): Promise<PackageManagerType | null> {
+  // Logger.warn(`targetDir -> ${targetDir}`);
   const packageManager = await detect({ programmatic: true, cwd: targetDir });
-
+  // Logger.info(`packageManager  inside the function -> ${packageManager}`);
   if (packageManager === "yarn@berry") return "yarn";
   if (packageManager === "pnpm@6") return "pnpm";
   if (packageManager === "bun") return "bun";

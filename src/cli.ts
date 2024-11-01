@@ -14,24 +14,28 @@ import { runTailwindInstaller } from "./helpers/tailwind-installer";
 import path from "path";
 
 export async function main(projectPath: string) {
-  projectPath = path.join(process.cwd(), "/exampleProjects/example05"); // this is for testing
-  Logger.info(`Installing Tailwind in -> ${projectPath}`);
+  // THIS IS THE TYPESCRIPT PROJECT SO WE HAVE TO FIGURE OUT HOW TO HANDLE IT
+  // projectPath = path.join(process.cwd(), "/exampleProjects/example08"); // this is for testing
+  // Logger.info(`Installing Tailwind in -> ${projectPath}`);
   const projectInfo = await getProjectInfo(projectPath);
 
   if (!projectInfo) {
     Logger.errorReturn("we appologize but this project is not supported yet");
     return;
   }
+  // Logger.infoJSON(projectInfo);
   const packageRunner = await getPackageRunner(projectPath);
   if (!packageRunner) {
     Logger.error("Package runner not supported yet....");
     return;
   }
+  // Logger.info(`dir -> ${projectPath}`);
   const packageManager = await getPackageManager(projectPath);
   if (!packageManager) {
     Logger.error("No package manager found");
     return;
   }
+  // Logger.info(`Package manager -> ${packageManager}`);
   const frameworkInfo = getFrameworkInfo({
     projectInfo,
     packageManager,
