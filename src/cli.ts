@@ -39,6 +39,7 @@ export async function main(projectPath: string) {
     packageRunner,
     cwd: projectPath,
   });
+
   // Logger.info(`Framework info -> `);
   // Logger.infoJSON(frameworkInfo);
   await runTailwindInstaller({ config: frameworkInfo });

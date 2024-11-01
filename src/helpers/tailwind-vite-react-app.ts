@@ -8,11 +8,8 @@ import {
 } from "./next-app-helpers";
 import { updateGlobalCss } from "./global-css-installer";
 import path from "path";
-import { updateTsConfig } from "./ts-config-updater";
-import { handleError } from "./handle-error";
 
-// tailwind vite react app
-//TODO:add support for tsconfig
+import { handleError } from "./handle-error";
 
 export async function installTailwindForVite({
   config,
@@ -34,17 +31,7 @@ export async function installTailwindForVite({
     const cssPath = path.resolve(cwd, "src/index.css");
     cssPromise = updateGlobalCss(cwd, cssPath);
 
-    // const tsconfigPromise =
-    //   tsconfigPath && TypescriptConfig
-    //     ? updateTsConfig(tsconfigPath)
-    //     : Promise.resolve();
-
-    await Promise.all([
-      postcssPromise,
-      tailwindPromise,
-      cssPromise,
-      //   tsconfigPromise,
-    ]);
+    await Promise.all([postcssPromise, tailwindPromise, cssPromise]);
     dependenciesSpinner?.succeed();
   } catch (error) {
     dependenciesSpinner?.fail();
